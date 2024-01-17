@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="utf-8">
+	<title>PUZZLE 1</title>
+	<link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&amp;display=swap" rel="stylesheet" />
+	<link href="favicon16.png" rel="icon" sizes="16x16" type="image/png" />
+	<link href="favicon32.png" rel="icon" sizes="32x32" type="image/png" />
+	<link href="favicon48.png" rel="icon" sizes="48x48" type="image/png" />
+	<link href="favicon64.png" rel="icon" sizes="64x64" type="image/png" />
+	<link href="favicon96.png" rel="icon" sizes="96x96" type="image/png" />
+	<link href="favicon128.png" rel="icon" sizes="128x128" type="image/png" />
+	<link href="favicon256.png" rel="icon" sizes="256x256" type="image/png" />
+	<link href="favicon512.png" rel="icon" sizes="512x512" type="image/png" /><meta name="msapplication-TileImage" content="file:///Users/catherineorman/Desktop/cod3x/ms-icon-144x144.png"><meta name="theme-color" content="#ffffff">
+	<style type="text/css">body {
+            background-color: black;
+            font-family: 'Inconsolata';
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            text-align: center;
+            transform: scale(0.6);
+            transform-origin: top center;
+            margin-left: 50px;
+
+        }
+        .content-container {
+            margin-top: 150px;
+            position: relative; /* For positioning header and password box */
+        }
+        .header {
+            font-family: 'Inconsolata';
+            font-size: 1.8em; /* Adjust size as needed */
+            color: #33FF00;
+            margin-bottom: 10px; /* Space above the painting */
+        }
+        .image-container {
+            max-width: 600px; /* Adjust to match the size of your painting image */
+            margin-bottom: 30px; /* Space for the password box */
+            margin-top: 40px;
+        }
+        .painting {
+            width: 100%; /* Make the painting fill the container */
+        }
+        .password-box {
+            font-size: 1.5em;
+            color: #33FF00;
+            background: rgba(255, 255, 255, 0);
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        .password-box label {
+            margin-left: 90px;
+            margin-right: 10px;
+        }
+
+        .password-box input[type="password"] {
+            border: none;
+            background: rgba(255, 255, 255, 0);
+            border-bottom: 2px solid #33FF00;
+            padding: 5px;
+            font-size: 1em;
+            color: #fff; /* Add this line */
+
+        }
+        .password-box input[type="password"]:focus {
+            outline: none;
+            flex-grow: 1;
+        }
+	</style>
+</head>
+<body>
+<div class="content-container"><!-- Header text above the painting -->
+<div class="header">Twice rescued from peril, my son stands tall</div>
+
+<div class="header">Who is he who did not fall?</div>
+
+<div class="image-container"><!-- Insert your painting image here --><img class="painting" src="Clue_1.jpg" /></div>
+<!-- Password box now placed below the painting -->
+
+<div class="password-box">
+<form action="indovinelloPassword1.php" id="passwordForm" method="post"><label for="password">Password:</label> <input id="password" name="password" type="password" /> <input style="display: none;" type="submit" value="Submit" /></form>
+</div>
+</div>
+</body>
+</html>
