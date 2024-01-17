@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="utf-8">
+	<link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&amp;display=swap" rel="stylesheet" />
+	<title>ENIGMATICA</title>
+	<link href="favicon16.png" rel="icon" sizes="16x16" type="image/png" />
+	<link href="favicon32.png" rel="icon" sizes="32x32" type="image/png" />
+	<link href="favicon48.png" rel="icon" sizes="48x48" type="image/png" />
+	<link href="favicon64.png" rel="icon" sizes="64x64" type="image/png" />
+	<link href="favicon96.png" rel="icon" sizes="96x96" type="image/png" />
+	<link href="favicon128.png" rel="icon" sizes="128x128" type="image/png" />
+	<link href="favicon256.png" rel="icon" sizes="256x256" type="image/png" />
+	<link href="favicon512.png" rel="icon" sizes="512x512" type="image/png" /><meta name="theme-color" content="#ffffff">
+	<link href="xterm.css" rel="stylesheet" /><script src="xterm.js"></script>
+	<style type="text/css">body {
+            background-color: black;
+            font-family: 'Inconsolata';
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            display: flex;
+            align-items: left;
+            justify-content: left;
+            flex-direction: column;
+            text-align: left;
+            transform: scale(0.6);
+            transform-origin: top left;
+            margin-left: 50px;
+
+        }
+        pre {
+            margin-top: 50px;
+            position: relative; 
+            color: #33FF00;
+            margin-bottom: 50px;
+        }
+
+        p {
+            color: #FFFFFF;
+            font-size: 1.5em;
+            text-align: left;
+        }
+        @keyframes flicker {
+            0% { opacity: 1; }
+            50% { opacity: 0.5; }
+            100% { opacity: 1; }
+        }
+        .flicker {
+            animation: flicker 0.3s infinite alternate;
+        }
+        .green-text {
+            font-weight: bold;
+        }
+	</style>
+</head>
+<body>
+<pre id="asciiArt">
+ _____ _   _ ___ ____ __  __    _  _____ ___ ____    _    
+| ____| \ | |_ _/ ___|  \/  |  / \|_   _|_ _/ ___|  / \   
+|  _| |  \| || | |  _| |\/| | / _ \ | |  | | |     / _ \  
+| |___| |\  || | |_| | |  | |/ ___ \| |  | | |___ / ___ \ 
+|_____|_| \_|___\____|_|  |_/_/   \_|_| |___\____/_/   \_\
+</pre>
+
+<div id="terminal"></div>
+<script>
+    // Initialize Terminal
+    var term = new Terminal();
+    term.open(document.getElementById('terminal'));
+    
+    // Display an initial message and set up the prompt
+    term.writeln('welcome to \x1b[1menigmatica\x1b[0m.');
+    term.writeln('type \x1b[1mcurious\x1b[0m to get started.');
+    term.writeln(' ');
+
+    term.write('\x1b[92m$ \x1b[0m'); // Set up the initial prompt
+
+    // Function to handle commands
+    function handleCommand(command) {
+        var processedCommand = command.trim().toLowerCase();
+
+        if (processedCommand === 'curious') {
+            term.writeln(' ');
+            term.writeln('  play');
+            term.writeln('  leaderboard');
+            term.writeln('  archive');
+            term.writeln('  questions');
+            term.writeln(' ');
+
+        } else if (processedCommand === 'play') {
+            term.writeln(' ');
+            term.writeln('  initializing active game ...');
+            window.open('gaul_puzzle.html', '_blank');
+            term.writeln(' ');
+
+        } else if (processedCommand === 'leaderboard') {
+            term.writeln(' ');
+            term.writeln('  #1 user345............34:06');
+            term.writeln('  #2 user086............37:13');
+            term.writeln('  #3 user209............48:20');
+            term.writeln('  #4 user762.........01:02:13');
+            term.writeln('  #5 user399.........01:08:54');
+            term.writeln(' ');
+
+        }  else if (processedCommand === 'archive') {
+            term.writeln(' ');
+            term.writeln('  indovinello');
+            term.writeln(' ');
+
+
+        }  else if (processedCommand === 'indovinello') {
+            term.writeln(' ');
+            term.writeln('  initializing game ...');
+            window.open('indovinello_1.html', '_blank');
+            term.writeln(' ');
+
+
+        }  else if (processedCommand === 'questions') {
+            term.writeln(' ');
+            term.writeln('  answers@enigmatica.xyz');
+            term.writeln(' ');
+
+
+        }   else {
+            term.writeln(' ');
+            term.writeln('  Unknown command: ' + command);
+            term.writeln(' ');
+
+        }
+    }
+
+    // Setup to handle user input
+    term.onKey((keyEvent) => {
+        const char = keyEvent.key;
+        if (char === '\r') { // Enter key is pressed
+            term.write('\n');
+            let command = term.buffer.active.getLine(term.buffer.active.cursorY - 1).translateToString().trim();
+            // Remove the prompt from the command
+            command = command.replace(/^\$\s*/, '');
+            handleCommand(command);
+            term.write('\x1b[92m$ \x1b[0m'); // Set up the prompt for next input
+        } else {
+            term.write(char);
+        }
+    });
+
+        // JavaScript to apply flickering to random characters
+        const asciiArt = document.getElementById('asciiArt');
+        const text = asciiArt.innerText;
+        const flickerCharacters = () => {
+            let newText = '';
+            for (let char of text) {
+                // Randomly apply the flicker class
+                if (Math.random() > 0.9) {
+                    newText += `<span class="flicker">${char}</span>`;
+                } else {
+                    newText += char;
+                }
+            }
+            asciiArt.innerHTML = newText;
+        };
+
+        // Interval to constantly update the flickering effect
+        setInterval(flickerCharacters, 180);
+    </script></body>
+</html>
