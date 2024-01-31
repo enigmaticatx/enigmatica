@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>PUZZLE 7</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&amp;display=swap" rel="stylesheet">
+	<link href="favicon16.png" rel="icon" sizes="16x16" type="image/png" />
+	<link href="favicon32.png" rel="icon" sizes="32x32" type="image/png" />
+	<link href="favicon48.png" rel="icon" sizes="48x48" type="image/png" />
+	<link href="favicon64.png" rel="icon" sizes="64x64" type="image/png" />
+	<link href="favicon96.png" rel="icon" sizes="96x96" type="image/png" />
+	<link href="favicon128.png" rel="icon" sizes="128x128" type="image/png" />
+	<link href="favicon256.png" rel="icon" sizes="256x256" type="image/png" />
+	<link href="favicon512.png" rel="icon" sizes="512x512" type="image/png" />
+    <meta name="msapplication-TileImage" content="file:///Users/catherineorman/Desktop/cod3x/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+        <title>PUZZLE 7</title>
+        <style>
+            body {
+                background-color: black;
+                font-family: 'Inconsolata';
+                margin: 0;
+                padding: 0;
+                height: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+                text-align: center;
+                transform: scale(0.6);
+                transform-origin: top center;
+                margin-left: 50px;
+            }
+            .content-container {
+                margin-top: 150px;
+                position: relative;
+            }
+            .header {
+                font-family: 'Inconsolata';
+                font-size: 1.5em;
+                color: #33FF00;
+                margin-bottom: 10px;
+            }
+            .image-container {
+                max-width: 600px;
+                margin-bottom: 100px;
+                margin-top: 80px;
+                position: relative; /* Set to relative for absolute positioning of children */
+            }
+            .painting {
+                width: 100%;
+            }
+            .password-box {
+                font-size: 1.5em;
+                color: #33FF00;
+                background: rgba(255, 255, 255, 0);
+                padding: 10px;
+                border-radius: 5px;
+                margin-top: 70px;
+                display: flex;
+                align-items: center;
+            }
+            .password-box label {
+                margin-left: 90px;
+                margin-right: 10px;
+            }
+            .password-box input[type="password"] {
+                border: none;
+                background: rgba(255, 255, 255, 0);
+                border-bottom: 2px solid #33FF00;
+                padding: 5px;
+                font-size: 1em;
+                color: #33FF00;
+            }
+            .password-box input[type="password"]:focus {
+                outline: none;
+                flex-grow: 1;
+            }
+            /* Style for the clickable link area */
+            .link-overlay {
+                position: absolute;
+                bottom: 0; /* Align to bottom of the image container */
+                left: 0;
+                width: 100%; /* Same width as the image */
+                height: 50px; /* Height of the clickable area */
+                cursor: pointer; /* Change cursor to indicate clickable area */
+            }
+        </style>
+    </head>
+    <body>
+        <div class="content-container">
+            <div class="header">Echoless whispers, hue's quiet guise,</div>
+            <div class="header">In sightless script, a spectral prize.</div>
+            <div class="header">Seek in the silence, hear with your eyes,</div>
+            <div class="header">The final enigma where the answer lies.</div>
+                    
+            <div class="image-container">
+                <img src="file:///Users/catherineorman/Desktop/c_puzzle/clue_7.jpg" class="painting">
+                <!-- Transparent link overlay -->
+                <a href="https://www.youtube.com/watch?v=9F9fEr2Twjc" class="link-overlay" target="_blank"></a>
+            </div>
+            <div class="password-box">
+                <form id="passwordForm" action="sevenPassword.php" method="post">
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password">
+                    <input type="submit" value="Submit" style="display: none;">
+                </form>
+            </div>
+        </div>
+    </body>
+    </html>
+    
